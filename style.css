@@ -1,0 +1,851 @@
+:root {
+    --bg: #080808;
+    --bg-soft: #101010;
+    --text: #f3f3f3;
+    --muted: #999;
+    --red: #e21b23;
+    --border: rgba(255, 255, 255, 0.12);
+    --max-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+
+    padding: 0 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 100;
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+
+    background: rgba(8,8,8,0.65);
+    backdrop-filter: blur(20px);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo span,
+.footer-logo span {
+    color: var(--red);
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a {
+    color: #aaa;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    transition: color .3s ease;
+}
+
+.navbar nav a:hover {
+    color: white;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 70% 50%,
+            rgba(226, 27, 35, 0.15),
+            transparent 30%
+        ),
+        linear-gradient(
+            110deg,
+            #050505 0%,
+            #0c0c0c 60%,
+            #160607 100%
+        );
+}
+
+.hero-background::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.9),
+            transparent 70%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(var(--max-width), 90%);
+    margin: auto;
+}
+
+.eyebrow {
+    color: var(--red);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(90px, 17vw, 240px);
+    line-height: .75;
+
+    font-weight: 900;
+    letter-spacing: -10px;
+
+    margin-left: -12px;
+}
+
+.hero-subtitle {
+    margin-top: 35px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(20px, 3vw, 40px);
+    font-style: italic;
+
+    color: #ddd;
+}
+
+.hero-description {
+    margin-top: 25px;
+
+    max-width: 430px;
+
+    color: #aaa;
+
+    line-height: 1.7;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+
+    margin-top: 45px;
+
+    padding: 16px 22px;
+
+    border: 1px solid var(--border);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    transition: .3s ease;
+}
+
+.hero-button span {
+    color: var(--red);
+    font-size: 18px;
+}
+
+.hero-button:hover {
+    background: white;
+    color: black;
+}
+
+.hero-side {
+    position: absolute;
+
+    right: 5vw;
+    top: 50%;
+
+    transform: rotate(90deg) translateX(50%);
+
+    color: #555;
+
+    font-size: 10px;
+    letter-spacing: 5px;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 5vw;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    color: #666;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.scroll-indicator div {
+    width: 50px;
+    height: 1px;
+    background: #555;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    position: relative;
+
+    width: min(var(--max-width), 90%);
+
+    margin: auto;
+
+    padding: 150px 0;
+}
+
+.section-number {
+    position: absolute;
+
+    top: 150px;
+    right: 0;
+
+    color: #333;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    min-height: 80vh;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+
+    align-items: start;
+}
+
+.section-heading h2 {
+    font-size: clamp(55px, 8vw, 105px);
+    line-height: .9;
+
+    letter-spacing: -5px;
+}
+
+.section-heading h2 em {
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    color: #aaa;
+}
+
+.about-text {
+    padding-top: 60px;
+}
+
+.about-text p {
+    color: #999;
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+.about-text .large-text {
+    color: white;
+
+    font-size: 21px;
+    line-height: 1.6;
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats-section {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.stat {
+    padding: 60px 5vw;
+
+    border-right: 1px solid var(--border);
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat strong {
+    display: block;
+
+    font-size: clamp(35px, 4vw, 60px);
+
+    letter-spacing: -3px;
+}
+
+.stat span {
+    display: block;
+
+    margin-top: 10px;
+
+    color: #777;
+
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   SONGS
+========================= */
+
+.career .section-heading {
+    margin-bottom: 100px;
+}
+
+.songs {
+    border-top: 1px solid var(--border);
+}
+
+.song-card {
+    display: grid;
+
+    grid-template-columns: 100px 1fr 40px;
+
+    align-items: center;
+
+    gap: 50px;
+
+    padding: 35px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    transition: .3s ease;
+}
+
+.song-card:hover {
+    padding-left: 20px;
+}
+
+.song-year {
+    color: var(--red);
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.song-card h3 {
+    font-size: 25px;
+
+    margin-bottom: 8px;
+}
+
+.song-card p {
+    color: #777;
+
+    max-width: 600px;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.song-arrow {
+    color: #555;
+
+    font-size: 25px;
+
+    transition: .3s ease;
+}
+
+.song-card:hover .song-arrow {
+    color: var(--red);
+    transform: translate(5px, -5px);
+}
+
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote-section {
+    min-height: 80vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.quote-background {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(226,27,35,.13),
+            transparent 35%
+        );
+}
+
+.quote-content {
+    position: relative;
+
+    text-align: center;
+}
+
+.quote-mark {
+    display: block;
+
+    color: var(--red);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 100px;
+    line-height: .5;
+}
+
+blockquote {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(40px, 7vw, 90px);
+
+    line-height: 1.05;
+
+    letter-spacing: -3px;
+}
+
+.quote-content p {
+    margin-top: 30px;
+
+    color: #666;
+
+    font-size: 12px;
+}
+
+.quote-content em {
+    color: #aaa;
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline-section .section-heading {
+    margin-bottom: 120px;
+}
+
+.timeline {
+    max-width: 900px;
+    margin-left: auto;
+}
+
+.timeline-item {
+    display: grid;
+
+    grid-template-columns: 100px 1px 1fr;
+
+    gap: 35px;
+
+    padding-bottom: 70px;
+}
+
+.timeline-year {
+    color: var(--red);
+
+    font-size: 13px;
+    font-weight: 800;
+
+    padding-top: 3px;
+}
+
+.timeline-line {
+    width: 1px;
+
+    background: #333;
+
+    position: relative;
+}
+
+.timeline-line::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 7px;
+    height: 7px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: var(--red);
+}
+
+.timeline-content h3 {
+    font-size: 25px;
+
+    margin-bottom: 12px;
+}
+
+.timeline-content p {
+    max-width: 500px;
+
+    color: #777;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   LEGACY
+========================= */
+
+.legacy-section {
+    min-height: 90vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 150px 5vw;
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(226,27,35,.14),
+            transparent 30%
+        ),
+        #0c0c0c;
+}
+
+.legacy-inner {
+    width: min(var(--max-width), 100%);
+    margin: auto;
+}
+
+.legacy-section h2 {
+    font-size: clamp(70px, 12vw, 170px);
+    line-height: .85;
+
+    letter-spacing: -8px;
+}
+
+.legacy-section h2 span {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+
+    color: #777;
+}
+
+.legacy-text {
+    max-width: 550px;
+
+    margin-top: 50px;
+
+    color: #888;
+
+    line-height: 1.8;
+}
+
+.legacy-year {
+    margin-top: 100px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 5px;
+}
+
+.legacy-year span {
+    color: var(--red);
+    padding: 0 15px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 50px 5vw;
+
+    border-top: 1px solid var(--border);
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.footer-top p {
+    color: #666;
+
+    font-size: 12px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 80px;
+
+    color: #444;
+
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .navbar nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+
+        flex-direction: column;
+        gap: 6px;
+
+        background: none;
+        border: none;
+
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block;
+
+        width: 25px;
+        height: 1px;
+
+        background: white;
+    }
+
+    .hero h1 {
+        font-size: 25vw;
+        letter-spacing: -5px;
+    }
+
+    .hero-side {
+        display: none;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-text {
+        padding-top: 0;
+    }
+
+    .stats-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat {
+        padding: 40px 5vw;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .song-card {
+        grid-template-columns: 60px 1fr 20px;
+
+        gap: 20px;
+    }
+
+    .song-card h3 {
+        font-size: 19px;
+    }
+
+    .song-card p {
+        font-size: 12px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 65px 1px 1fr;
+        gap: 20px;
+    }
+
+    .section {
+        padding: 100px 0;
+    }
+
+    .section-number {
+        top: 100px;
+    }
+
+    .legacy-section {
+        padding: 100px 5vw;
+    }
+
+    .legacy-section h2 {
+        letter-spacing: -5px;
+    }
+
+    .footer-top {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .stats-section {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat strong {
+        font-size: 32px;
+    }
+
+    .stat span {
+        font-size: 9px;
+    }
+
+    .song-card {
+        grid-template-columns: 1fr 20px;
+    }
+
+    .song-year {
+        display: none;
+    }
+
+    blockquote {
+        font-size: 38px;
+    }
+
+    .legacy-section h2 {
+        font-size: 65px;
+    }
+}
